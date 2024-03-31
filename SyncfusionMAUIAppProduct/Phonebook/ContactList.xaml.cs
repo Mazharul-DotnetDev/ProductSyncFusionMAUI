@@ -5,8 +5,14 @@ public partial class ContactList : ContentPage
 	public ContactList()
 	{
 		InitializeComponent();
-	}
-	private async void sfButton_Clicked(object sender, EventArgs e)
+        HandlerChanged += OnHandlerChanged;
+    }
+
+    void OnHandlerChanged(object sender, EventArgs e)
+    {
+        BindingContext = Handler.MauiContext.Services.GetService<ContactGridViewModel>();
+    }
+    private async void sfButton_Clicked(object sender, EventArgs e)
 	{
 		try
 		{

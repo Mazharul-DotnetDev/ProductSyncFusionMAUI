@@ -5,14 +5,15 @@
              x:Class="SyncfusionMAUIAppProduct.Phonebook.ContactList"
               xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
              Title="ContactList">
-    <ContentPage.BindingContext>
-        
+    <!--<ContentPage.BindingContext>
+
         <local:ContactGridViewModel x:Name="viewModel"/>
-    </ContentPage.BindingContext>
+    </ContentPage.BindingContext>-->
     <ContentPage.Content>
         <Grid RowDefinitions="Auto, *" >
             <syncfusion:SfDataGrid x:Name="dataGrid" Grid.Row="1"
                                AutoGenerateColumnsMode="None"
+                                   AllowEditing="True"
                                ColumnWidthMode="Auto"
                                SelectionMode="Single"
                                SortingMode="Multiple"
@@ -20,13 +21,22 @@
                                AllowTriStateSorting="True"
                                ItemsSource="{Binding Contacts}">
                 <syncfusion:SfDataGrid.Columns>
-                    <syncfusion:DataGridTextColumn MappingName="OrderID" HeaderText="Contact ID" />
+                    <syncfusion:DataGridTextColumn MappingName="Id" HeaderText="Contact ID" />
                     <syncfusion:DataGridTextColumn MappingName="FirstName" HeaderText="First Name"/>
                     <syncfusion:DataGridTextColumn MappingName="LastName" HeaderText="Last Name"/>
                     <syncfusion:DataGridTextColumn MappingName="ContactNumber" HeaderText="Contact Number"/>
+                    <syncfusion:DataGridTextColumn MappingName="ContactNumber" HeaderText="Contact Number"/>
+
+                    <syncfusion:DataGridTemplateColumn MappingName="Id">
+                        <syncfusion:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Text="Delete" Command="{Binding Source={x:Reference dataGrid},Path=BindingContext.ButtonCommand}"  CommandParameter="{Binding .}"></Button>
+                            </DataTemplate>
+                        </syncfusion:DataGridTemplateColumn.CellTemplate>
+                    </syncfusion:DataGridTemplateColumn>
                 </syncfusion:SfDataGrid.Columns>
             </syncfusion:SfDataGrid>
-            <buttons:SfButton x:Name="sfButton" Text="Entry" Clicked="sfButton_Clicked" />
+            <buttons:SfButton x:Name="sfButton" Margin="10" VerticalOptions="End" HorizontalOptions="Center" Text="Entry" Clicked="sfButton_Clicked" />
 
         </Grid>
     </ContentPage.Content>

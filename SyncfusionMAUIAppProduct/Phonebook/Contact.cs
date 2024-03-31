@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace SyncfusionMAUIAppProduct.Phonebook
 {
@@ -28,35 +29,67 @@ namespace SyncfusionMAUIAppProduct.Phonebook
 	}
 	public class ContactGridViewModel : INotifyPropertyChanged
 	{
-		public ContactGridViewModel()
+        private ICommand buttonCommand;
+        public ICommand ButtonCommand
+        {
+            get { return buttonCommand; }
+            set { buttonCommand = value; }
+        }
+
+        public ContactGridViewModel()
+        {
+            DataGenerate();
+            this.ButtonCommand = new Command(DeleteRecord);
+        }
+
+        #region ItemsSource
+
+        private ObservableCollection<Contact> contacts;
+
+        public ObservableCollection<Contact> Contacts
+        {
+            get { return contacts; }
+            set { contacts = value; RaisePropertyChanged("Contacts"); }
+        }
+
+        public void AddContact(Contact c)
+        {
+
+            //if (contacts == null || contacts.Count == 0)
+            //{
+            //    Contacts = new ObservableCollection<Contact>();
+            //}
+            Contacts.Add(c);
+            RaisePropertyChanged("Contacts");
+        }
+        private void DeleteRecord(object contact )
+        {
+            if(contact is Contact cnt)
+            {
+                var c = Contacts.AsEnumerable().First(x => x.Id == cnt.Id);
+
+                Contacts.Remove(c);
+                RaisePropertyChanged("Contacts");
+
+            }
+        }
+
+        #endregion
+
+
+
+        #region ItemSource Generator
+
+        public void DataGenerate()
 		{
-			DataGenerate();
-		}
-
-		#region ItemsSource
-
-		private static ObservableCollection<Contact> contacts;
-
-		public ObservableCollection<Contact> Contacts
-		{
-			get { return contacts; }
-			set { contacts = value; }
-		}
-
-		#endregion
-
-		#region ItemSource Generator
-
-		public void DataGenerate()
-		{
-			if(contacts == null || contacts.Count==0)
+			if(contacts == null)
 			{
-				Contacts = new ObservableCollection<Contact>();
-
-				Contacts.Add(new Contact() { FirstName = "Abc", LastName = "Xyz" });
+				Contacts = new ObservableCollection<Contact>();				
 			}
-			
-		}
+
+			//if(contacts.Count == 0)
+   //             Contacts.Add(new Contact() { FirstName = "Abc", LastName = "Xyz" });
+        }
 
 		#endregion
 
