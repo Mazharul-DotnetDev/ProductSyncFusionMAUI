@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+              xmlns:local="clr-namespace:SyncfusionMAUIAppProduct" Title="DataGrid"
+             x:Class="SyncfusionMAUIAppProduct.DataGridFeatures">
+    <ContentPage.BindingContext>
+        <local:DataGridViewModel x:Name="viewModel"/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto, *" >
+            <syncfusion:SfDataGrid x:Name="dataGrid" Grid.Row="1"
+                               AutoGenerateColumnsMode="None"
+                               ColumnWidthMode="Auto"
+                               SelectionMode="Multiple"
+                               SortingMode="Multiple"
+                               ShowSortNumbers="True"
+                               AllowTriStateSorting="True"
+                               ItemsSource="{Binding OrdersInfo}">
+                <syncfusion:SfDataGrid.Columns>
+                    <syncfusion:DataGridNumericColumn MappingName="OrderID" HeaderText="Order ID" Format="d"/>
+                    <syncfusion:DataGridTextColumn MappingName="CustomerID" HeaderText="Customer ID"/>
+                    <syncfusion:DataGridTextColumn MappingName="ShipCountry" HeaderText="Ship Country"/>
+                    <syncfusion:DataGridTextColumn MappingName="Customer" HeaderText="Customer"/>
+                    <syncfusion:DataGridTextColumn MappingName="ShipCity" HeaderText="Ship City"/>
+                </syncfusion:SfDataGrid.Columns>
+            </syncfusion:SfDataGrid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

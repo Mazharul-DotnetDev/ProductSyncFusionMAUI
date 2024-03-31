@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:picker="clr-namespace:Syncfusion.Maui.Picker;assembly=Syncfusion.Maui.Picker"
+             Title="DatePicker"
+             x:Class="SyncfusionMAUIAppProduct.DatePickerFeatures" >
+<ContentPage.Content>
+<StackLayout>
+    <picker:SfDatePicker x:Name="datePicker" />
+</StackLayout>
+</ContentPage.Content>	
+</ContentPage>

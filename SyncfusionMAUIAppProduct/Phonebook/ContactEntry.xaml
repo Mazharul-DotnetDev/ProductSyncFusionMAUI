@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SyncfusionMAUIAppProduct.Phonebook.ContactEntry"
+             Title="ContactEntry"
+             xmlns:dataForm="clr-namespace:Syncfusion.Maui.DataForm;assembly=Syncfusion.Maui.DataForm"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             xmlns:local="clr-namespace:SyncfusionMAUIAppProduct.Phonebook"
+             >
+    <ContentPage.BindingContext>
+        <local:ContactFormViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto, *" >
+            <dataForm:SfDataForm x:Name="dataForm" DataObject="{Binding Contact}" ValidationMode="PropertyChanged" />
+            <buttons:SfButton x:Name="sfButton"  Text="Save" Clicked="sfButton_Clicked" />
+
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>

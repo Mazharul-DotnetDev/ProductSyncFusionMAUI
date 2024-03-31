@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SyncfusionMAUIAppProduct.Phonebook"  xmlns:syncfusion="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+             x:Class="SyncfusionMAUIAppProduct.Phonebook.ContactList"
+              xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             Title="ContactList">
+    <ContentPage.BindingContext>
+        
+        <local:ContactGridViewModel x:Name="viewModel"/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto, *" >
+            <syncfusion:SfDataGrid x:Name="dataGrid" Grid.Row="1"
+                               AutoGenerateColumnsMode="None"
+                               ColumnWidthMode="Auto"
+                               SelectionMode="Single"
+                               SortingMode="Multiple"
+                               ShowSortNumbers="True"
+                               AllowTriStateSorting="True"
+                               ItemsSource="{Binding Contacts}">
+                <syncfusion:SfDataGrid.Columns>
+                    <syncfusion:DataGridTextColumn MappingName="OrderID" HeaderText="Contact ID" />
+                    <syncfusion:DataGridTextColumn MappingName="FirstName" HeaderText="First Name"/>
+                    <syncfusion:DataGridTextColumn MappingName="LastName" HeaderText="Last Name"/>
+                    <syncfusion:DataGridTextColumn MappingName="ContactNumber" HeaderText="Contact Number"/>
+                </syncfusion:SfDataGrid.Columns>
+            </syncfusion:SfDataGrid>
+            <buttons:SfButton x:Name="sfButton" Text="Entry" Clicked="sfButton_Clicked" />
+
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>

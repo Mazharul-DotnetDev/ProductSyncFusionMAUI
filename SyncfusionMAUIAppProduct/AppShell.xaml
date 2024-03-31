@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="SyncfusionMAUIAppProduct.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:SyncfusionMAUIAppProduct"
+     xmlns:localPh="clr-namespace:SyncfusionMAUIAppProduct.Phonebook"
+    Shell.FlyoutBehavior="Flyout">
+
+    
+
+<ShellContent Title = "DataGrid" ContentTemplate = "{DataTemplate local:DataGridFeatures}" Route ="DataGridFeatures" /> 
+<ShellContent Title = "PDF Viewer" ContentTemplate = "{DataTemplate local:PDFViewerFeatures}" Route ="PDFViewerFeatures" /> 
+<ShellContent Title = "DataForm" ContentTemplate = "{DataTemplate local:DataFormFeatures}" Route ="DataFormFeatures" /> 
+<ShellContent Title = "Numeric Entry" ContentTemplate = "{DataTemplate local:NumericEntryFeatures}" Route ="NumericEntryFeatures" /> 
+<ShellContent Title = "DatePicker" ContentTemplate = "{DataTemplate local:DatePickerFeatures}" Route ="DatePickerFeatures" /> 
+<ShellContent Title = "Radio Button" ContentTemplate = "{DataTemplate local:RadioButtonFeatures}" Route ="RadioButtonFeatures" /> 
+<ShellContent Title = "CheckBox" ContentTemplate = "{DataTemplate local:CheckBoxFeatures}" Route ="CheckBoxFeatures" /> 
+<ShellContent Title = "Backdrop" ContentTemplate = "{DataTemplate local:BackdropFeatures}" Route ="BackdropFeatures" /> 
+<ShellContent Title = "Text Input Layout" ContentTemplate = "{DataTemplate local:TextInputLayoutFeatures}" Route ="TextInputLayoutFeatures" /> 
+<ShellContent Title = "Popup" ContentTemplate = "{DataTemplate local:PopupFeatures}" Route ="PopupFeatures" /> 
+<ShellContent Title = "Navigation Drawer" ContentTemplate = "{DataTemplate local:NavigationDrawerFeatures}" Route ="NavigationDrawerFeatures" /> 
+<ShellContent Title = "Button" ContentTemplate = "{DataTemplate local:ButtonFeatures}" Route ="ButtonFeatures" />
+
+    <ShellContent Title = "Contact List" ContentTemplate = "{DataTemplate localPh:ContactList}" Route ="ContactListPage" />
+</Shell>

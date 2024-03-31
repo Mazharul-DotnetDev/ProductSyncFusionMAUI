@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             Title="Radio Button"
+             x:Class="SyncfusionMAUIAppProduct.RadioButtonFeatures" >
+        <ContentPage.Content>
+        <StackLayout>
+        <buttons:SfRadioGroup  x:Name="RadiobuttonGroup">
+            <Label Text="Pick one fruit from the group : "/>
+            <buttons:SfRadioButton Text="Orange"/>
+            <buttons:SfRadioButton Text="Apple"/>
+            <buttons:SfRadioButton Text="Grapes"/>
+        </buttons:SfRadioGroup>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

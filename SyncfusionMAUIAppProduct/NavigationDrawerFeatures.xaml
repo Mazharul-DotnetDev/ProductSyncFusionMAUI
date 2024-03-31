@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:navigationDrawer="clr-namespace:Syncfusion.Maui.NavigationDrawer;assembly=Syncfusion.Maui.NavigationDrawer"
+             xmlns:avatar="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             x:Class="SyncfusionMAUIAppProduct.NavigationDrawerFeatures">
+	<navigationDrawer:SfNavigationDrawer x:Name="navigationDrawer">
+		<navigationDrawer:SfNavigationDrawer.DrawerSettings>
+			<navigationDrawer:DrawerSettings Position="Top" Transition="Push" EnableSwipeGesture="True" >
+			<navigationDrawer:DrawerSettings.DrawerHeaderView>
+					<Grid x:Name="headerGrid" BackgroundColor="#1aa1d6" RowDefinitions="*,Auto" Padding="5" HeightRequest="150">
+						<avatar:SfAvatarView WidthRequest="80" HeightRequest="80" ContentType="AvatarCharacter" AvatarCharacter="Avatar12" CornerRadius="50" Margin="0,20,0,0"/>
+						<Label Text="Jack" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Center"
+                       FontSize="20" TextColor="White"/>
+					</Grid>
+				</navigationDrawer:DrawerSettings.DrawerHeaderView>
+				<navigationDrawer:DrawerSettings.DrawerContentView>
+					<VerticalStackLayout Spacing="10">
+						<Grid ColumnDefinitions="Auto,*" Padding="5" ColumnSpacing="10">
+							<Image Source="search.png" HeightRequest="30" WidthRequest="20"/>
+							<Entry Placeholder="Search" Grid.Column="1" VerticalOptions="Center"/>
+						</Grid>
+						<ListView x:Name="listView">
+							<ListView.ItemTemplate>
+								<DataTemplate>
+									<ViewCell>
+										<StackLayout HeightRequest="40">
+											<Label  Text="{Binding}" Padding="10,0,0,0" FontSize="16"/>
+										</StackLayout>
+									</ViewCell>
+								</DataTemplate>
+							</ListView.ItemTemplate>
+						</ListView>
+					</VerticalStackLayout>
+				</navigationDrawer:DrawerSettings.DrawerContentView>
+				<navigationDrawer:DrawerSettings.DrawerFooterView>
+					<Grid x:Name="footerGrid" BackgroundColor="LightGray">
+						<Label Text="Sync.Soft.Pvt.Ltd" VerticalOptions="Center" HorizontalOptions="Center"/>
+					</Grid>
+				</navigationDrawer:DrawerSettings.DrawerFooterView>
+			</navigationDrawer:DrawerSettings>
+		</navigationDrawer:SfNavigationDrawer.DrawerSettings>
+		<navigationDrawer:SfNavigationDrawer.ContentView>
+			<Grid x:Name="mainContentView" RowDefinitions="auto,*">
+				<HorizontalStackLayout BackgroundColor="#1aa1d6" Spacing="10" Padding="5,0,0,0">
+					<ImageButton x:Name="hamburgerButton" HeightRequest="50" WidthRequest="50" HorizontalOptions="Start"  Source="hamburgericon.png" BackgroundColor="#1aa1d6" Clicked="hamburgerButton_Clicked"/>
+					<Label x:Name="headerLabel" HeightRequest="50" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="Home" FontSize="16" TextColor="White" BackgroundColor="#1aa1d6"/>
+				</HorizontalStackLayout>
+				<VerticalStackLayout Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Center">
+					<Label x:Name="contentLabel" VerticalOptions="Center" HorizontalOptions="Center" Text="Content View" FontSize="14" TextColor="Black"/>
+				</VerticalStackLayout>
+			</Grid>
+		</navigationDrawer:SfNavigationDrawer.ContentView>
+	</navigationDrawer:SfNavigationDrawer>
+</ContentPage>
